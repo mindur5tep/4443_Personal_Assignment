@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="0dp"
+    android:id="@+id/main"
+    android:background="#F4FBF8">
+
+    <!-- Toolbar (Top Nav Bar)-->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Profile Settings"
+        app:navigationIcon="@drawable/arrow_small_left"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        app:titleCentered="true"
+        android:textColor="#002114"/>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePictureLayout"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="24dp"
+        android:scaleType="centerCrop"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/profile_picture_avatar"
+        android:src="@drawable/generic_avatar" />
+
+
+    <Button
+        android:id="@+id/uploadImageBut"
+        style="@style/Widget.Material3.Button.TextButton.Icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/upload_image"
+        android:textColor="#206A4E"
+        android:textSize="16sp" />
+
+    <!-- Username item-->
+    <LinearLayout
+        android:id="@+id/layoutUsername"
+        style="@style/ProfileItemFirst"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:text="@string/username"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto" />
+
+        <ImageView
+            android:id="@+id/ivArrow1"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/arrow"
+            app:tint="@android:color/black"
+            android:src="@drawable/ic_arrow_right"/>
+    </LinearLayout>
+
+
+    <!-- Divider-->
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@android:color/darker_gray" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"/>
+
+    <!-- Password item-->
+    <LinearLayout
+        android:id="@+id/layoutPassword"
+        style="@style/ProfileItem"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:text="@string/password"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto"/>
+
+        <ImageView
+            android:id="@+id/ivArrow2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/arrow"
+            app:tint="@android:color/black"
+            android:src="@drawable/ic_arrow_right"/>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@android:color/darker_gray" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"/>
+
+    <!-- Full Name Item -->
+    <LinearLayout
+        android:id="@+id/layoutFullName"
+        style="@style/ProfileItem">
+        <TextView
+            android:text="@string/full_name"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto"/>
+        <ImageView
+            android:id="@+id/ivArrow3"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/arrow"
+            app:tint="@android:color/black"
+            android:src="@drawable/ic_arrow_right"/>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@android:color/darker_gray" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"/>
+
+    <!-- Address Item -->
+    <LinearLayout
+        android:id="@+id/layoutAddress"
+        style="@style/ProfileItem">
+        <TextView
+            android:text="@string/address"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto"/>
+        <ImageView
+        android:id="@+id/ivArrow4"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+            android:contentDescription="@string/arrow"
+            app:tint="@android:color/black"
+        android:src="@drawable/ic_arrow_right"/>
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@android:color/darker_gray" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"/>
+
+    <!-- Phone Item -->
+    <LinearLayout
+        android:id="@+id/layoutPhone"
+        style="@style/ProfileItemLast"
+        android:background="@drawable/bottom_rounded_background">
+        <TextView
+            android:text="@string/phone_number"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto"/>
+        <ImageView
+            android:id="@+id/ivArrow5"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="@string/arrow"
+            app:tint="@android:color/black"
+            android:src="@drawable/ic_arrow_right"/>
+    </LinearLayout>
+
+    <!-- Delete Account Item -->
+    <LinearLayout
+        android:id="@+id/layoutDeleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_box"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/linearLayoutProfileSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tvDeleteAccount"
+            android:layout_width="0dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/delete_account"
+            android:textColor="#BA1A1A"
+            android:textSize="16sp"
+            android:fontFamily="@font/roboto"/>
+
+    </LinearLayout>
+
+</LinearLayout>
