@@ -42,6 +42,7 @@ public class Recipe {
         this.category = category;
         this.ingredients = ingredients;
         this.instructions = instructions;
+        this.isSaved = isSaved;
     }
 
     // Getters

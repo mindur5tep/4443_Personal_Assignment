@@ -6,7 +6,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6FAFE">
+    android:background="#F6FAFE"
+    android:padding="0dp">
 
     <!-- Profile Header -->
 

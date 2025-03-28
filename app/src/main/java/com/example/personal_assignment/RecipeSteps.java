@@ -3,9 +3,15 @@ package com.example.personal_assignment;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +38,8 @@ public class RecipeSteps extends AppCompatActivity {
     private PorcupineManager porcupineManager;
     private int currentStep;  // Variable to track the current step
     private ArrayList<String> steps;
+    private int userId;
+    private ImageButton backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,13 +47,20 @@ public class RecipeSteps extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_steps);
 
         textTv = findViewById(R.id.textRecipe);
+
+        userId = getIntent().getIntExtra("uid", -1);
         steps = getIntent().getStringArrayListExtra("steps");
+        backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RecipeSteps.this, RecipeActivity.class);
+            intent.putExtra("uid", userId);
+            startActivity(intent);
+        });
+
        currentStep = 0;
 
         if (steps != null && !steps.isEmpty()) {
-            String firstStep = steps.get(currentStep);
             textTv.setText(steps.get(currentStep));
-            Log.d("RECIPE_STEPS", "First step: " + firstStep);
         }else{
             Toast.makeText(RecipeSteps.this, "No Steps Found", Toast.LENGTH_SHORT).show();
         }
@@ -123,13 +138,36 @@ public class RecipeSteps extends AppCompatActivity {
                 } catch (PorcupineException e) {
                     throw new RuntimeException(e);
                 }
+                Intent intent = new Intent(RecipeSteps.this, RecipeActivity.class);
+                intent.putExtra("uid", userId);
+                startActivity(intent);
+                finish();
             }
         }
     }
 
     private void updateStep() {
         if (steps != null && currentStep >= 0 && currentStep < steps.size()) {
-            textTv.setText("Step " + (currentStep + 1) + ":\n\n" + steps.get(currentStep));
+            String stepLabel = "Step " + (currentStep + 1);
+
+            SpannableStringBuilder builder = new SpannableStringBuilder(stepLabel);
+
+            builder.setSpan(new StyleSpan(Typeface.BOLD),
+                    0,
+                    builder.length(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            builder.setSpan(new RelativeSizeSpan(1.3f),
+                    0,
+                    builder.length(),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            builder.append(":\n\n");
+
+            builder.append(steps.get(currentStep));
+
+            textTv.setText(builder);
+
         } else {
             textTv.setText("You've completed the recipe.\nSay 'back' to review a step.");
         }

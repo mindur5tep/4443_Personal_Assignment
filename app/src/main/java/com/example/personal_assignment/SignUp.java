@@ -143,7 +143,7 @@ public class SignUp extends AppCompatActivity {
         }
 
         // Password combination check
-        if (!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=.]).{8,}$")) {
+        if (!password.matches("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=*.]).{8,}$")) {
             passwordLayout.setError(getString(R.string.error_password));
             hasError = true;
         } else {

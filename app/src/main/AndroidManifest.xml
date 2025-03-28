@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Personal_Assignment"
         tools:targetApi="31">
         <activity
+            android:name=".RecipeStepsOnboarding"
+            android:exported="false" />
+        <activity
             android:name=".RecipeSteps"
             android:exported="false" />
         <activity

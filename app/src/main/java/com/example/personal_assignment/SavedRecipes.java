@@ -1,10 +1,7 @@
 package com.example.personal_assignment;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -18,15 +15,10 @@ import com.example.personal_assignment.database.Recipe;
 import com.example.personal_assignment.database.RecipeDao;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 public class SavedRecipes extends AppCompatActivity {
 
     private FilteredRecipeAdapter adapter;
     private int userId;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
     private RecipeDao recipeDao;
 
     @Override
@@ -34,53 +26,47 @@ public class SavedRecipes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_recipes);
 
+        // Get user ID passed from the previous activity
         userId = getIntent().getIntExtra("uid", -1);
 
+        // Set up RecyclerView and adapter
         RecyclerView recyclerView = findViewById(R.id.rvSavedRecipes);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         recipeDao = ProfileDatabase.getDatabase(getApplicationContext()).recipeDao();
-
         adapter = new FilteredRecipeAdapter(this, this::openRecipeDetail, recipeDao);
         recyclerView.setAdapter(adapter);
 
+        // Apply window insets for edge-to-edge UI
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right,0);
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0);
             return insets;
-
         });
 
-
-        executor.execute(() -> {
-            List<Recipe> savedRecipes = recipeDao.getSavedRecipes();
-            runOnUiThread(() -> adapter.submitList(savedRecipes));
+        // Observe LiveData for saved recipes (must be called on main thread)
+        recipeDao.getSavedRecipes().observe(this, recipes -> {
+            adapter.submitList(recipes);
         });
 
+        // Bottom Navigation setup
         BottomNavigationView bottomNavigation = findViewById(R.id.bottom_navigation);
-        bottomNavigation.setSelectedItemId(R.id.nav_saved); // Ensure Saved is selected
-
+        bottomNavigation.setSelectedItemId(R.id.nav_saved); // Mark Saved as selected
         bottomNavigation.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-
             if (itemId == R.id.nav_home) {
-                    Intent intent = new Intent(SavedRecipes.this, MainActivity.class);
-                    intent.putExtra("uid", userId);
-                    startActivity(intent);
-                    finish();
+                Intent intent = new Intent(SavedRecipes.this, MainActivity.class);
+                intent.putExtra("uid", userId);
+                startActivity(intent);
+                finish();
                 return true;
-
             } else if (itemId == R.id.nav_saved) {
-                // Already on SavedRecipes page
-                return true;
-
+                return true; // Already on SavedRecipes page
             } else if (itemId == R.id.nav_account) {
                 Intent intent = new Intent(SavedRecipes.this, AccountProfile.class);
                 intent.putExtra("uid", userId);
                 startActivity(intent);
                 return true;
             }
-
             return false;
         });
     }
@@ -96,14 +82,5 @@ public class SavedRecipes extends AppCompatActivity {
         intent.putExtra("instructions", recipe.getInstructions());
         intent.putExtra("category", recipe.getCategory());
         startActivity(intent);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        executor.execute(() -> {
-            List<Recipe> savedRecipes = recipeDao.getSavedRecipes();
-            runOnUiThread(() -> adapter.submitList(savedRecipes));
-        });
     }
 }

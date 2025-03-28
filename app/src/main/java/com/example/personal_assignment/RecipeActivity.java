@@ -93,7 +93,7 @@ public class RecipeActivity extends AppCompatActivity {
         btnCookNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (RecipeActivity.this, RecipeSteps.class);
+                Intent intent = new Intent (RecipeActivity.this, RecipeStepsOnboarding.class);
                 intent.putStringArrayListExtra("steps", new ArrayList<>(cleanSteps));
                 intent.putExtra("uid", userId);
                 startActivity(intent);

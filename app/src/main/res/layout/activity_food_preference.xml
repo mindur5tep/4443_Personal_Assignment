@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:checkable="true"
             app:chipBackgroundColor="@color/chip_bg_selector"
-            android:text="Mediterranean"
+            android:text="Dessert"
             app:chipIconVisible="false"
             app:checkedIconVisible="false"/>
 

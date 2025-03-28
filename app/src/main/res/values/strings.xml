@@ -376,7 +376,81 @@ Top with gochujang and drizzle sesame oil.
     ]]>
 </string>
 
+    <string name="fruit_salad_title">Fresh Fruit Salad</string>
+    <string name="fruit_salad_overview">
+A sweet and refreshing mix of seasonal fruits tossed with a hint of sugar and lemon juice for a quick and healthy treat.
+</string>
+    <string name="fruit_salad_time">15 mins</string>
+    <string name="fruit_salad_ingredients">
+1 small apple\n
+1 banana\n
+½ cup of blueberries\n
+1 cup of strawberries\n
+½ tbsp sugar\n
+1 tsp of lemon juice
+</string>
+    <string name="fruit_salad_instructions">
+<![CDATA[
+• <b>Step 1: Prepare the fruit</b><br/>
+Wash and peel the fruits as needed to get them ready for chopping.<br/><br/>
 
+• <b>Step 2: Chop the fruit</b><br/>
+Cut all fruits into bite-sized pieces for easy mixing and serving.<br/><br/>
+
+• <b>Step 3: Assemble</b><br/>
+Combine all fruits in a bowl, add sugar and lemon juice, then gently toss to coat.
+]]>
+</string>
+
+    <string name="parfait_title">Yogurt Fruit Parfait</string>
+    <string name="parfait_overview">
+A delicious and crunchy layered treat made with creamy yogurt, homemade granola, and fresh fruits.
+</string>
+    <string name="parfait_time">20 mins</string>
+    <string name="parfait_ingredients">
+¼ cup blueberries\n
+1 large strawberry\n
+½ cup of oats\n
+1 tbsp brown sugar\n
+1 tsp vegetable oil\n
+1 cup of yogurt
+</string>
+    <string name="parfait_instructions">
+<![CDATA[
+• <b>Step 1: Prepare the granola mixture</b><br/>
+Preheat the oven to 300°F and line a baking tray with a baking sheet. In a bowl, mix oats, brown sugar, and vegetable oil by hand until the oats are evenly coated.<br/><br/>
+
+• <b>Step 2: Bake the granola</b><br/>
+Spread the mixture evenly on the baking sheet and bake at 300°F for 5 minutes. Once done, remove from the oven and let it cool completely.<br/><br/>
+
+• <b>Step 3: Prepare the fruit</b><br/>
+Rinse the blueberries and strawberries, then core and dice the strawberries into small pieces.<br/><br/>
+
+• <b>Step 4: Assemble</b><br/>
+In a cup or glass, layer yogurt, granola, and fruit. Repeat the layers until the container is full. Finish by garnishing with extra granola and fruit.
+]]>
+</string>
+
+    <string name="cookie_dough_title">Edible Cookie Dough Bites</string>
+    <string name="cookie_dough_overview">
+No-bake cookie dough bites made with oats, chocolate chips, and butter — safe to eat and fun to share.
+</string>
+    <string name="cookie_dough_time">15 mins</string>
+    <string name="cookie_dough_ingredients">
+Unsalted butter\nGranulated sugar\nBrown sugar\nVanilla extract\nMilk\nOats\nSalt\nChocolate chips
+</string>
+    <string name="cookie_dough_instructions">
+<![CDATA[
+• <b>Step 1: Prep the oats and butter</b><br/>
+Blend the oats until they become a fine powder. If needed, microwave the butter for 10 seconds and stir until smooth.<br/><br/>
+
+• <b>Step 2: Make the dough</b><br/>
+Cream the butter, sugars, and salt together in a bowl until fluffy. Mix in the oat flour until a dough forms, then fold in the chocolate chips.<br/><br/>
+
+• <b>Step 3: Shape and serve</b><br/>
+Scoop and roll the dough into 1-inch balls, place on a dish, and chill if preferred.
+]]>
+</string>
 
 
 </resources>
