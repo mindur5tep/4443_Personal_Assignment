@@ -18,7 +18,7 @@
     <style name="ProfileItemFirst">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">#EDF2EC</item>
+        <item name="android:background">#EEF1F6</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:padding">16dp</item>
@@ -26,36 +26,36 @@
         <item name= "android:topRightRadius">10dp</item>
         <item name= "android:radius">20dp</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:layout_marginStart">24dp</item>
-        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
     </style>
 
     <style name="ProfileItem">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">#EDF2EC</item>
+        <item name="android:background">#EEF1F6</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:padding">16dp</item>
         <item name= "android:topLeftRadius">10dp</item>
         <item name= "android:topRightRadius">10dp</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:layout_marginStart">24dp</item>
-        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
     </style>
 
     <style name="ProfileItemLast">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">#EDF2EC</item>
+        <item name="android:background">#EEF1F6</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:padding">16dp</item>
         <item name= "android:bottomLeftRadius">10dp</item>
         <item name= "android:bottomRightRadius">10dp</item>
         <item name="android:orientation">horizontal</item>
-        <item name="android:layout_marginStart">24dp</item>
-        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
     </style>
 
     <!-- Profile Text Style -->

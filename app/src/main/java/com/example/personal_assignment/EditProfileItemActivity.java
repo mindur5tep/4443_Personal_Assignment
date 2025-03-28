@@ -17,21 +17,27 @@ import com.example.personal_assignment.database.ProfileDatabase;
 import com.example.personal_assignment.database.User;
 import com.example.personal_assignment.database.UserDao;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointBackward;
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class EditProfileItemActivity extends AppCompatActivity {
 
     private MaterialToolbar topAppBar;
-    private TextInputEditText etUsername, etPassword, etFullName, etPhone, etAddress;
-    private TextInputLayout usernameLayout, passwordLayout, fullNameLayout, phoneLayout,
-            addressLayout;
+    private TextInputEditText etUsername, etPassword, etFullName, etBirthDate;
+    private TextInputLayout usernameLayout, passwordLayout, fullNameLayout, birthDateLayout;
     private Button btnSave;
     private String fieldKey, fieldLabel;
     private ExecutorService executor = Executors.newSingleThreadExecutor();
@@ -55,18 +61,17 @@ public class EditProfileItemActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         etFullName = findViewById(R.id.etFullName);
-        etPhone = findViewById(R.id.etPhone);
-        //Add a watcher to the Phone Number input to format it into XXX-XXX-XXXX
-        etPhone.addTextChangedListener(new PhoneNumberWatcher(etPhone));
-        etAddress = findViewById(R.id.etAddress);
+        etBirthDate = findViewById(R.id.etBirthDate);
+
         btnSave = findViewById(R.id.btnSave);
 
         // Initialize UI layout (parent elements)
         usernameLayout = findViewById(R.id.usernameLayout);
         passwordLayout = findViewById(R.id.passwordLayout);
         fullNameLayout = findViewById(R.id.fullNameLayout);
-        phoneLayout = findViewById(R.id.phoneLayout);
-        addressLayout = findViewById(R.id.addressLayout);
+        birthDateLayout = findViewById(R.id.birthdateLayout);
+
+        etBirthDate.setOnClickListener(v -> showDatePickerDialog());
 
         // Handle edge-to-edge insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -107,8 +112,7 @@ public class EditProfileItemActivity extends AppCompatActivity {
                 usernameLayout.setVisibility(View.GONE);
                 passwordLayout.setVisibility(View.GONE);
                 fullNameLayout.setVisibility(View.GONE);
-                phoneLayout.setVisibility(View.GONE);
-                addressLayout.setVisibility(View.GONE);
+                birthDateLayout.setVisibility(View.GONE);
 
                 // Shows which text field to be shown in the activity,
                 // and set the text of the text field with the initial user information.
@@ -124,13 +128,9 @@ public class EditProfileItemActivity extends AppCompatActivity {
                         etFullName.setText(currentUser.getFullName());
                         fullNameLayout.setVisibility(View.VISIBLE);
                         break;
-                    case "phoneNumber":
-                        etPhone.setText(currentUser.getPhoneNumber());
-                        phoneLayout.setVisibility(View.VISIBLE);
-                        break;
-                    case "address":
-                        etAddress.setText(currentUser.getAddress());
-                        addressLayout.setVisibility(View.VISIBLE);
+                    case "birthDate":
+                        etBirthDate.setText(currentUser.getBirthDate());
+                        birthDateLayout.setVisibility(View.VISIBLE);
                         break;
                 }
             });
@@ -212,51 +212,15 @@ public class EditProfileItemActivity extends AppCompatActivity {
                     }
                     break;
                 }
-                case "phoneNumber": {
-                    String newPhone = etPhone.getText().toString().trim();
-                    // Clear errors
-                    runOnUiThread(() -> phoneLayout.setError(null));
 
-                    if (newPhone.isEmpty()) {
-                        runOnUiThread(() -> phoneLayout.setError(getString(R.string.error_required)));
+                case "birthDate": {
+                    String dateOfBirth = etBirthDate.getText().toString().trim();
+
+                    if (dateOfBirth.isEmpty()) {
+                        runOnUiThread(() -> fullNameLayout.setError(getString(R.string.error_required)));
                         return;
                     }else {
-                        if (newPhone.length() != 12) {
-                            // Invalid phone number format
-                            runOnUiThread(() -> phoneLayout.setError(getString(R.string.phone_number)));
-                            return; // Stop
-                        } else {
-                            // Valid phone
-                            if (!newPhone.equals(currentUser.getPhoneNumber())) {
-                                currentUser.setPhoneNumber(newPhone);
-                                hasChanges = true;
-                            }
-                        }
-                    }
-                    break;
-                }
-                case "address": {
-                    String newAddress = etAddress.getText().toString().trim();
-
-                    boolean hasError = false;
-
-                    runOnUiThread(() -> {
-                        addressLayout.setError(null);
-                    });
-
-                    // Check empty fields
-                    if (newAddress.isEmpty()) {
-                        runOnUiThread(() -> addressLayout.setError(getString(R.string.error_required)));
-                        hasError = true;
-                    }
-                    // If any error was flagged, stop
-                    if (hasError) {
-                        return;
-                    }
-
-                    // Update fields if changed
-                    if (!newAddress.equals(currentUser.getAddress())) {
-                        currentUser.setAddress(newAddress);
+                        currentUser.setBirthDate(dateOfBirth);
                         hasChanges = true;
                     }
                     break;
@@ -292,5 +256,42 @@ public class EditProfileItemActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         executor.shutdown();
+    }
+
+    private void showDatePickerDialog() {
+        // Method for showing calendar for birth date
+        long today = MaterialDatePicker.todayInUtcMilliseconds();
+        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
+        cal.setTimeInMillis(today);
+        cal.add(Calendar.YEAR, -100);
+        long startRange = cal.getTimeInMillis();
+
+        CalendarConstraints.Builder constraintsBuilder = new CalendarConstraints.Builder()
+                .setStart(startRange)
+                .setEnd(today)
+                .setValidator(DateValidatorPointBackward.now());
+
+        MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
+                .setTitleText("Select Date")
+                .setSelection(today)
+                .setCalendarConstraints(constraintsBuilder.build())
+                .build();
+
+        datePicker.addOnPositiveButtonClickListener(selection -> {
+            Calendar utc = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+            utc.setTimeInMillis(selection);
+            int year = utc.get(Calendar.YEAR);
+            int month = utc.get(Calendar.MONTH);
+            int day = utc.get(Calendar.DAY_OF_MONTH);
+
+            Calendar localCal = Calendar.getInstance();
+            localCal.clear();
+            localCal.set(year, month, day);
+
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            etBirthDate.setText(sdf.format(localCal.getTime()));
+        });
+
+        datePicker.show(getSupportFragmentManager(), "DATE_PICKER");
     }
 }

@@ -9,13 +9,14 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {User.class, DiaryEntry.class}, version = 10, exportSchema = false)
+@Database(entities = {User.class, UserPreference.class, Recipe.class}, version = 25, exportSchema = false)
 
 public abstract class ProfileDatabase extends RoomDatabase {
     private static volatile ProfileDatabase INSTANCE;
 
     public abstract UserDao userDao();
-    public abstract DiaryDao diaryDao();
+
+    public abstract RecipeDao recipeDao();
 
     public static ProfileDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {

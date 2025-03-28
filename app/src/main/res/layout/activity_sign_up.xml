@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUp"
-    android:background="#F4FBF8"
+    android:background="#F6FAFE"
     android:orientation="vertical"
     >
 
@@ -14,8 +14,8 @@
 
     <ImageButton
         android:id="@+id/backButton"
-        android:paddingStart="18dp"
-        android:paddingEnd="18dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/arrow_small_left"
@@ -27,8 +27,8 @@
     <!-- Sign Up Header -->
     <TextView
         android:id="@+id/signup_header"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
@@ -41,8 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="@string/let_s_create_a_new_account"
         android:textSize="16sp" />
 
@@ -69,17 +69,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/upload_image"
-        android:textColor="#206A4E"
+        android:textColor="#206487"
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fullNameLayout"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:errorEnabled="true"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -102,8 +102,8 @@
     <!-- Username TextInputLayout -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameLayout"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -124,8 +124,8 @@
     <!-- Password TextInputLayout -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -148,8 +148,8 @@
     <!-- Date of Brith TextInputLayout -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/birthdateLayout"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -169,60 +169,19 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Phone Number TextInputLayout -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneNumberLayout"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPhoneNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/phone_number"
-            android:textSize="16sp"
-            android:inputType="number"
-            android:maxLines="14"
-            android:lines="1"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Address TextInputLayout -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/addressLayout"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:errorEnabled="true"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/address"
-            android:inputType="text"
-            android:textSize="16sp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
 
     <!-- Save Button -->
     <Button
         android:id="@+id/continueSignupBut"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#206A4E"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#206487"
         android:fontFamily="@font/roboto_medium"
         android:stateListAnimator="@null"
         android:text="@string/save_signup_information"

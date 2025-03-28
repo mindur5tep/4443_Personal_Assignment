@@ -53,4 +53,8 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.android.test.runner)
     androidTestImplementation(libs.android.test.rules)
+    implementation(libs.glide)
+    annotationProcessor(libs.glide.compiler)
+    implementation(libs.porcupine)
+    implementation(libs.activity.ktx)
 }

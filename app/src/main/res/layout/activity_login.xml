@@ -5,15 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4FBF8"
+    android:background="#F6FAFE"
     android:orientation="vertical"
     tools:context=".Login">
 
     <!-- Login Header -->
     <TextView
         android:id="@+id/login_header"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40sp"
@@ -25,8 +25,8 @@
     <!-- Login Body -->
     <TextView
         android:id="@+id/login_body"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto"
@@ -36,8 +36,8 @@
     <!-- Username TextInputLayout -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/usernameLayout"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,8 +58,8 @@
     <!-- Password TextInputLayout -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/passwordLayout"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,10 +102,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.Material3.Button"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#206A4E"
+        android:backgroundTint="#206487"
         android:elevation="0dp"
         android:fontFamily="@font/roboto_medium"
         android:stateListAnimator="@null"
@@ -119,8 +119,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
 
         <TextView
             android:id="@+id/textView4"
@@ -141,7 +141,7 @@
             android:text="@string/sign_up"
             android:textAlignment="textStart"
             android:textAllCaps="false"
-            android:textColor="#206A4E"
+            android:textColor="#206487"
             android:textSize="14sp"
             app:strokeColor="#FFFFFF" />
 

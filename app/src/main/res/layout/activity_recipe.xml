@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6FAFE"
+    tools:context=".RecipeActivity">
+
+    <!-- Top App Bar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        style="@style/Widget.Material3.Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Creamy Pasta"
+        app:navigationIcon="@drawable/arrow_small_left"
+        app:titleTextAppearance="@style/MyToolbarTitleTextAppearance"
+        android:textColor="#002114"
+        android:background="#F6FAFE" />
+
+    <!-- Scrollable content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_marginBottom="80dp"
+        android:paddingHorizontal="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Time -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_clock"
+                    android:tint="#999" />
+
+                <TextView
+                    android:id="@+id/recipeTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="20 min"
+                    android:textColor="#555"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- Image -->
+            <ImageView
+                android:id="@+id/recipeImage"
+                android:layout_width="match_parent"
+                android:layout_height="184dp"
+                android:layout_marginTop="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/creamy_pasta" />
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/saveRecipeBtn"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="start"
+                style="@style/Widget.Material3.Button"
+                android:text="Save"
+                android:backgroundTint="#206487"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:textAllCaps="false"
+                android:elevation="0dp" />
+
+            <!-- Overview -->
+            <TextView
+                android:id="@+id/recipeOverview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Imagine a comforting bowl of pasta enveloped in a silky, velvety sauce..."
+                android:textColor="#555"
+                android:textSize="14sp" />
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#ccc" />
+
+            <!-- Ingredients Header -->
+            <TextView
+                android:id="@+id/ingredientsHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Ingredients"
+                android:textColor="#555"
+                android:textSize="16sp" />
+
+            <!-- Ingredients -->
+            <TextView
+                android:id="@+id/recipeIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="#555"
+                android:textSize="14sp"
+                android:layout_marginBottom="16dp"/>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#ccc" />
+
+            <!-- Instructions Header -->
+            <TextView
+                android:id="@+id/instructionsHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Instructions"
+                android:textColor="#555"
+                android:textSize="16sp" />
+
+            <!-- Instructions -->
+            <TextView
+                android:id="@+id/recipeInstructions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="80dp"
+                android:textColor="#555"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- FAB: Cook Now -->
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabCookNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="100dp"
+        android:text="Cook Now"
+        app:icon="@drawable/ic_cook"
+        app:iconTint="@android:color/white"
+        android:textColor="@android:color/white"
+        app:backgroundTint="#206487"
+        app:shapeAppearance="@style/ShapeAppearance.Material3.Corner.Full"
+        android:elevation="3dp"
+        app:iconGravity="textStart"/>
+
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_gravity="bottom"
+        app:backgroundTint="#206487"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_color_selector"
+        app:itemActiveIndicatorStyle="@style/BottomNavActiveIndicator"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

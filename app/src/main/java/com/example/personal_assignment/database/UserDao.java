@@ -1,9 +1,12 @@
 package com.example.personal_assignment.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Transaction;
 import androidx.room.Update;
 
 import java.util.List;
@@ -43,5 +46,15 @@ public interface UserDao {
 
     @Query("SELECT profile_pic FROM users WHERE uid = :userId")
     String getUserProfilePictureByUid(int userId);
+
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertPreference(UserPreference pref);
+
+    @Query("DELETE FROM user_preferences WHERE uid = :uid")
+    void clearPreferencesForUser(int uid);
+
+    @Query("SELECT preference FROM user_preferences WHERE uid = :uid")
+    List<String> getPreferencesByUser(int uid);
 
 }

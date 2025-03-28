@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="0dp"
     android:id="@+id/main"
-    android:background="#F4FBF8">
+    android:background="#F6FAFE">
 
     <!-- Toolbar (Top Nav Bar)-->
     <com.google.android.material.appbar.MaterialToolbar
@@ -16,11 +16,9 @@
         android:layout_height="wrap_content"
         app:title="Profile Settings"
         app:navigationIcon="@drawable/arrow_small_left"
-        android:layout_marginStart="4dp"
-        android:layout_marginEnd="4dp"
+
         app:titleCentered="true"
         android:textColor="#002114"/>
-
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilePictureLayout"
@@ -40,11 +38,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/upload_image"
-        android:textColor="#206A4E"
+        android:textColor="#206487"
         android:textSize="16sp" />
 
     <!-- Username item-->
@@ -126,59 +124,37 @@
     <!-- Divider -->
     <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@android:color/darker_gray" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"/>
 
-    <!-- Address Item -->
-    <LinearLayout
-        android:id="@+id/layoutAddress"
-        style="@style/ProfileItem">
-        <TextView
-            android:text="@string/address"
-            android:textStyle="bold"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"
-            android:fontFamily="@font/roboto"/>
-        <ImageView
-        android:id="@+id/ivArrow4"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-            android:contentDescription="@string/arrow"
-            app:tint="@android:color/black"
-        android:src="@drawable/ic_arrow_right"/>
-    </LinearLayout>
 
-    <!-- Divider -->
-    <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@android:color/darker_gray" android:layout_marginStart="24dp" android:layout_marginEnd="24dp"/>
-
-    <!-- Phone Item -->
+    <!-- Delete Account Item -->
     <LinearLayout
-        android:id="@+id/layoutPhone"
+        android:id="@+id/layoutBirthDate"
         style="@style/ProfileItemLast"
         android:background="@drawable/bottom_rounded_background">
+
         <TextView
-            android:text="@string/phone_number"
-            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:text="@string/date_of_birth"
             android:textSize="16sp"
-            android:fontFamily="@font/roboto"/>
+            android:textStyle="bold" />
+
         <ImageView
             android:id="@+id/ivArrow5"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:contentDescription="@string/arrow"
-            app:tint="@android:color/black"
-            android:src="@drawable/ic_arrow_right"/>
+            android:src="@drawable/ic_arrow_right"
+            app:tint="@android:color/black" />
     </LinearLayout>
 
-    <!-- Delete Account Item -->
     <LinearLayout
         android:id="@+id/layoutDeleteAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_box"
         android:clickable="true"

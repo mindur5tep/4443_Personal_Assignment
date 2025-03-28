@@ -25,14 +25,8 @@ public class User {
     @ColumnInfo(name = "birth_date")
     public String birthDate;
 
-    @ColumnInfo(name = "address")
-    public String address;
-
-    @ColumnInfo(name = "phone_number")
-    public String phoneNumber;
-
     @ColumnInfo(name = "profile_pic")
-    public String profilePic; // Optional (work on later if enough time)
+    public String profilePic;
 
     @Ignore
     public User(@NonNull String username, String fullName, String password, String birthDate, String address,
@@ -41,8 +35,6 @@ public class User {
         this.fullName = fullName;
         this.password = password;
         this.birthDate = birthDate;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
     }
 
     public User() {
@@ -87,21 +79,6 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
     public void setProfilePic(String profilePicUri) {
         this.profilePic = profilePicUri;
     }

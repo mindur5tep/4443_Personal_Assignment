@@ -36,7 +36,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
 
     private MaterialToolbar topAppBar;
     private ExecutorService executor;
-    private LinearLayout layoutUsername, layoutPassword, layoutFullName, layoutAddress, layoutPhone, layoutDeleteAccount;
+    private LinearLayout layoutUsername, layoutPassword, layoutFullName, layoutBirthDate, layoutDeleteAccount;
     private int userId = -1;
     private ImageView profilePicLayout;
     private Button uploadImage;
@@ -69,8 +69,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         layoutUsername = findViewById(R.id.layoutUsername);
         layoutPassword = findViewById(R.id.layoutPassword);
         layoutFullName = findViewById(R.id.layoutFullName);
-        layoutAddress = findViewById(R.id.layoutAddress);
-        layoutPhone = findViewById(R.id.layoutPhone);
+        layoutBirthDate = findViewById(R.id.layoutBirthDate);
         layoutDeleteAccount = findViewById(R.id.layoutDeleteAccount);
 
         // Get userId from Intent
@@ -96,7 +95,7 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         topAppBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (ProfileSettingsActivity.this, MainActivity.class);
+                Intent intent = new Intent (ProfileSettingsActivity.this, AccountProfile.class);
                 intent.putExtra("uid", userId);
                 startActivity(intent);
                 finish();
@@ -207,8 +206,8 @@ public class ProfileSettingsActivity extends AppCompatActivity {
         layoutUsername.setOnClickListener(v -> openEditPage("username", "Username"));
         layoutPassword.setOnClickListener(v -> openEditPage("password", "Password"));
         layoutFullName.setOnClickListener(v -> openEditPage("fullName", "Full Name"));
-        layoutAddress.setOnClickListener(v -> openEditPage("address", "Address"));
-        layoutPhone.setOnClickListener(v -> openEditPage("phoneNumber", "Phone Number"));
+        layoutBirthDate.setOnClickListener(v -> openEditPage("birthDate", "Date of Birth"));
+
     }
 
     private void openEditPage(String fieldKey, String fieldLabel) {

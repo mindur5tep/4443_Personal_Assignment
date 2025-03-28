@@ -4,6 +4,6 @@
 
     <corners android:radius="10dp"/> <!-- Adjust the radius here -->
 
-    <solid android:color="#EDF2EC"/> <!-- Background color of the box -->
+    <solid android:color="#EEF1F6"/> <!-- Background color of the box -->
 
 </shape>

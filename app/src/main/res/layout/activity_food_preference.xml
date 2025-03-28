@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:background="#F6FAFE"
+    android:orientation="vertical"
+    >
+
+    <!-- Back Button to Login Page -->
+
+    <!-- Sign Up Header -->
+    <TextView
+        android:id="@+id/signup_header"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Your Food Preference"
+        android:textColor="#002114"
+        android:textSize="28sp"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/login_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:text="Select from the list what type of food do you prefer"
+        android:textSize="16sp" />
+
+
+    <!-- Save Button -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
+        app:chipSpacingHorizontal="8dp"
+        app:singleLine="false">
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:text="Mediterranean"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Chinese"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Japanese"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Indian"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Thai"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Mexican"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Middle Eastern"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Italian"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="French"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Korean"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            app:chipBackgroundColor="@color/chip_bg_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Greek"
+            app:chipIconVisible="false"
+            app:checkedIconVisible="false"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <!-- SKIP (Outlined) -->
+        <Button
+            android:id="@+id/btnSkip"
+            style="?attr/materialButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="16dp"
+            android:layout_weight="1"
+            android:backgroundTint="#EEF1F6"
+            android:text="Skip"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:textColor="#0A1E28"/>
+
+        <!-- CONTINUE (Filled) -->
+        <Button
+            android:id="@+id/btnContinueLogin"
+            style="?attr/materialButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:backgroundTint="#206487"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</LinearLayout>

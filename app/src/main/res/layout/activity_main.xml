@@ -6,7 +6,7 @@
     android:id="@+id/coordinatorRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4FBF8"
+    android:background="#F6FAFE"
     tools:context=".MainActivity">
 
     <!-- Make sure that screen is scrollable, because there might be multiple diary entrie -->
@@ -15,121 +15,244 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="24dp">
+            android:orientation="vertical">
 
             <!-- Avatar and "Dear (User Full Name)" header -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profilePicture"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/profile_picture_avatar"
-                    android:src="@drawable/generic_avatar" />
+                android:layout_marginTop="16dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="12dp">
+                    android:layout_marginEnd="24dp"
+                    android:layout_weight="1">
 
                     <TextView
                         android:id="@+id/main_header"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="Dear Jax"
+                        android:text="Hey Jax!"
                         android:textColor="#002114"
-                        android:textSize="20sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/login_body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/roboto"
-                        android:text="How was your day?"
-                        android:textSize="18sp" />
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="What would you like to cook today?"
+                        android:textSize="24sp" />
 
                 </LinearLayout>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profilePicture"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/profile_picture_avatar"
+                    android:src="@drawable/generic_avatar" />
             </LinearLayout>
 
-            <!-- Main illustration -->
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="24dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerInside"
-                android:src="@drawable/illustration_mainpage" />
+                android:text="Most Popular"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="18dp"
+                android:textColor="#0A1E28"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="18dp"/>
 
-            <!-- "Your Diary" header row -->
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecipes"
                 android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:clipToPadding="false"
+                android:orientation="horizontal"/>
+
+            <!-- Cateogry header row -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Category"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="18dp"
+                    android:textColor="#0A1E28"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginTop="24dp"/>
+
+            <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:paddingTop="16dp">
+                app:singleSelection="true"
+                app:selectionRequired="true">
 
-                <TextView
-                    android:id="@+id/diary_header"
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:id="@+id/chipAll"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Your Diary"
-                    android:textSize="20sp" />
+                    android:checkable="true"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:text="All"
+                    android:checked="true"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
 
-            </LinearLayout>
-
-            <!-- Empty state container -->
-            <LinearLayout
-                android:id="@+id/emptyStateContainer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:paddingTop="40dp"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="240dp"
-                    android:layout_height="240dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/illustration_messy" />
-
-                <TextView
-                    android:id="@+id/diary_illustration_text"
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:id="@+id/chipMediterranean"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="Tap the plus button to begin your journal."
-                    android:textAlignment="center"
-                    android:textSize="18sp"
-                    android:paddingTop="12dp"/>
+                    android:checkable="true"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:text="Mediterranean"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
 
-            </LinearLayout>
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/chipChinese"
+                    android:checkable="true"
+                    android:text="Chinese"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
 
-            <!-- RecyclerView for diary entries -->
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipJapanese"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Japanese"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipIndian"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Indian"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipThai"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Thai"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMexican"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Mexican"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMiddleEastern"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Middle Eastern"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipItalian"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Italian"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFrench"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="French"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipKorean"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Korean"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipGreek"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    android:text="Greek"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
+            </com.google.android.material.chip.ChipGroup>
+
+            </HorizontalScrollView>
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewEntries"
+                android:id="@+id/rvFilteredRecipes"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:nestedScrollingEnabled="false"
-                android:paddingTop="8dp" />
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:overScrollMode="never"/>
 
         </LinearLayout>
     </ScrollView>
@@ -140,22 +263,11 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_gravity="bottom"
-        app:backgroundTint="#206A4E"
+        app:backgroundTint="#206487"
         app:labelVisibilityMode="unlabeled"
         app:menu="@menu/bottom_nav_menu"
-       app:itemIconTint="@color/bottom_nav_color_selector" />
+       app:itemIconTint="@color/bottom_nav_color_selector"
+        app:itemActiveIndicatorStyle="@style/BottomNavActiveIndicator"/>
 
-    <!-- Floating Action Button -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddEntry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="100dp"
-        android:layout_gravity="bottom|end"
-        android:src="@drawable/baseline_add_24"
-        app:tint="@android:color/white"
-        app:backgroundTint="#206A4E"
-        app:elevation="6dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -23,7 +23,7 @@
     <string name="phone_number">Phone Number</string>
     <string name="date_of_birth">Date of Birth</string>
     <string name="full_name">Full Name</string>
-    <string name="greeting_message">Dear %1$s</string>
+    <string name="greeting_message">Hey %1$s !</string>
     <string name="save">Save</string>
     <string name="diary_content_instruction">Write more here...</string>
     <string name="diary_title_instruction">Your diary title</string>
@@ -47,4 +47,336 @@
     <string name="error_invalid_credentials">Invalid username or password</string>
     <string name="upload_image">Upload Image</string>
     <string name="profile_picture_avatar">profile_picture_avatar</string>
+
+    <string name="recipe_title_creamy_pasta">Creamy Pasta</string>
+    <string name="recipe_overview_creamy_pasta">Imagine a comforting bowl of pasta enveloped in a silky, velvety sauce with hints of garlic and the nutty tang of Parmesan.</string>
+    <string name="recipe_time_creamy_pasta">20 mins</string>
+    <string name="recipe_ingredients_creamy_pasta">
+        200g fettuccine pasta\n
+        2 tablespoons unsalted butter\n
+        3 cloves garlic, minced\n
+        1 cup heavy cream\n
+        1/2 cup grated Parmesan cheese\n
+        Salt, to taste\n
+        Black pepper, to taste\n
+        Fresh parsley, chopped (optional, for garnish)
+    </string>
+    <string name="creamy_pasta_instructions"><![CDATA[
+        • <b>Step 1: Cook the Pasta</b><br/>
+        Bring a large pot of salted water to a boil. Add the pasta and cook until al dente. Reserve a bit of pasta water, then drain.<br/><br/>
+
+        • <b>Step 2: Sauté Garlic</b><br/>
+        In a large skillet, melt the butter over medium heat. Add the minced garlic and sauté for about 1–2 minutes until fragrant (avoid browning to prevent bitterness).<br/><br/>
+
+        • <b>Step 3: Make the Sauce</b><br/>
+        Pour in the heavy cream and bring to a gentle simmer. Stir continuously for 3–4 minutes until the sauce starts to thicken.<br/><br/>
+
+        • <b>Step 4: Add Parmesan</b><br/>
+        Lower the heat and gradually stir in the Parmesan cheese until it melts smoothly. If needed, add a splash of reserved pasta water to adjust the consistency.<br/><br/>
+
+        • <b>Step 5: Combine and Serve</b><br/>
+        Toss the cooked pasta into the skillet, ensuring every piece is coated in the creamy sauce. Season with salt and pepper, then serve hot.
+        ]]>
+    </string>
+
+    <string name="mapo_tofu_title">Mapo Tofu</string>
+    <string name="mapo_tofu_overview">A bold and spicy Sichuan dish featuring silky tofu and minced pork in a savory chili-bean sauce.</string>
+    <string name="mapo_tofu_time">15 mins</string>
+    <string name="mapo_tofu_ingredients">
+        300g soft tofu, cut into cubes\n
+        150g ground pork\n
+        1 tablespoon doubanjiang (chili bean paste)\n
+        2 cloves garlic, minced\n
+        1 teaspoon ginger, minced\n
+        2 tablespoons vegetable oil\n
+        1 tablespoon soy sauce\n
+        1/2 teaspoon sugar\n
+        1/2 cup chicken broth or water\n
+        1 tablespoon cornstarch (mixed with 2 tbsp water)\n
+        1 stalk green onion, chopped\n
+        Sichuan peppercorns, crushed (optional, for authentic flavor)
+    </string>
+    <string name="mapo_tofu_instructions">
+        <![CDATA[
+        • <b>Step 1: Prepare the Aromatics</b><br/>
+        Sauté garlic and ginger in a bit of oil until fragrant.<br/><br/>
+
+        • <b>Step 2: Cook the Pork</b><br/>
+        Add ground pork to the pan and cook until browned.<br/><br/>
+
+        • <b>Step 3: Add Chili Paste and Tofu</b><br/>
+        Stir in chili bean paste and gently add tofu cubes.<br/><br/>
+
+        • <b>Step 4: Simmer</b><br/>
+        Let it simmer for 5–7 minutes to absorb the flavor.<br/><br/>
+
+        • <b>Step 5: Garnish and Serve</b><br/>
+        Top with chopped green onion and serve hot with rice.
+        ]]>
+    </string>
+
+    <!-- Sushi Rolls -->
+    <string name="sushi_rolls_title">Sushi Rolls</string>
+    <string name="sushi_rolls_overview">Fresh and fun, these homemade sushi rolls combine creamy avocado, crisp cucumber, and savory crab.</string>
+    <string name="sushi_rolls_time">30 mins</string>
+    <string name="sushi_rolls_ingredients">Sushi rice\nSeaweed\nCucumber\nAvocado\nCrab sticks\nSoy sauce</string>
+    <string name="sushi_rolls_instructions">
+        <![CDATA[
+        • <b>Step 1: Prepare the Rice</b><br/>
+        Cook sushi rice and season with vinegar, sugar, and salt.<br/><br/>
+
+        • <b>Step 2: Lay Out the Nori</b><br/>
+        Place seaweed on a bamboo mat.<br/><br/>
+
+        • <b>Step 3: Add Fillings</b><br/>
+        Spread rice on seaweed, then layer cucumber, avocado, and crab.<br/><br/>
+
+        • <b>Step 4: Roll Tightly</b><br/>
+        Roll using gentle pressure, then slice into pieces.<br/><br/>
+
+        • <b>Step 5: Serve</b><br/>
+        Serve with soy sauce, wasabi, and pickled ginger.
+        ]]>
+    </string>
+
+    <!-- Chicken Tikka Masala -->
+    <string name="chicken_tikka_title">Chicken Tikka Masala</string>
+    <string name="chicken_tikka_overview">A classic Indian favorite featuring juicy marinated chicken in a rich, aromatic tomato-cream sauce.</string>
+    <string name="chicken_tikka_time">40 mins</string>
+    <string name="chicken_tikka_ingredients">Chicken\nYogurt\nTomato puree\nGarlic\nGinger\nSpices</string>
+    <string name="chicken_tikka_instructions">
+    <![CDATA[
+• <b>Step 1: Marinate the Chicken</b><br/>
+In a bowl, mix yogurt, garlic, ginger, and tikka masala spices. Add chicken pieces and coat well. Let it marinate for at least 30 minutes, preferably overnight.<br/><br/>
+
+• <b>Step 2: Cook the Chicken</b><br/>
+Grill or pan-fry the marinated chicken until browned and cooked through. Set aside.<br/><br/>
+
+• <b>Step 3: Make the Masala Sauce</b><br/>
+In a pan, sauté onions, garlic, and ginger in oil. Add tomato puree and cook for 5–7 minutes until thickened.<br/><br/>
+
+• <b>Step 4: Add Cream and Spices</b><br/>
+Stir in cream, garam masala, cumin, and paprika. Simmer the sauce until it becomes rich and creamy.<br/><br/>
+
+• <b>Step 5: Combine and Serve</b><br/>
+Add cooked chicken to the sauce. Let it simmer together for another 5–10 minutes. Garnish with cilantro and serve with rice or naan.
+    ]]>
+</string>
+
+    <string name="butter_chicken_title">Butter Chicken</string>
+    <string name="butter_chicken_overview">A beloved Indian dish featuring tender chicken simmered in a creamy tomato-butter sauce infused with spices — rich, flavorful, and comforting.</string>
+    <string name="butter_chicken_time">35 mins</string>
+    <string name="butter_chicken_ingredients">Chicken\nYogurt\nTomato puree\nButter\nGarlic\nGaram masala\nCream\nCumin</string>
+    <string name="butter_chicken_instructions">
+    <![CDATA[
+• <b>Step 1: Marinate the Chicken</b><br/>
+Combine yogurt, garlic, and garam masala. Add chicken and marinate for at least 30 minutes.<br/><br/>
+
+• <b>Step 2: Cook the Chicken</b><br/>
+Grill or sear chicken until slightly charred and cooked through.<br/><br/>
+
+• <b>Step 3: Prepare the Sauce</b><br/>
+Sauté garlic in butter. Add tomato puree and cook for 5–7 minutes.<br/><br/>
+
+• <b>Step 4: Finish the Sauce</b><br/>
+Stir in cream, cumin, and more garam masala. Simmer until thick and creamy.<br/><br/>
+
+• <b>Step 5: Combine</b><br/>
+Add chicken to sauce and simmer for 5–10 minutes. Serve with naan or rice.
+    ]]>
+</string>
+
+    <string name="carbonara_title">Spaghetti Carbonara</string>
+    <string name="carbonara_overview">A classic Roman pasta dish made with eggs, cheese, pancetta, and black pepper — creamy, savory, and incredibly satisfying.</string>
+    <string name="carbonara_time">20 mins</string>
+    <string name="carbonara_ingredients">Spaghetti\nEggs\nParmesan cheese\nPancetta\nBlack pepper\nSalt</string>
+    <string name="carbonara_instructions">
+    <![CDATA[
+• <b>Step 1: Cook the Pasta</b><br/>
+Boil spaghetti in salted water until al dente. Reserve some pasta water.<br/><br/>
+
+• <b>Step 2: Fry Pancetta</b><br/>
+In a pan, cook pancetta until crispy.<br/><br/>
+
+• <b>Step 3: Mix Eggs and Cheese</b><br/>
+In a bowl, beat eggs and mix with grated Parmesan.<br/><br/>
+
+• <b>Step 4: Combine</b><br/>
+Drain pasta and quickly mix with pancetta and egg mixture off heat, adding pasta water if needed.<br/><br/>
+
+• <b>Step 5: Serve</b><br/>
+Top with black pepper and extra cheese.
+    ]]>
+</string>
+
+    <string name="bulgogi_title">Bulgogi</string>
+    <string name="bulgogi_overview">Korean-style marinated beef grilled to perfection, packed with sweet and savory flavors — tender, juicy, and perfect with rice.</string>
+    <string name="bulgogi_time">30 mins</string>
+    <string name="bulgogi_ingredients">Thinly sliced beef\nSoy sauce\nSugar\nSesame oil\nGarlic\nOnion\nGreen onion\nPear puree</string>
+    <string name="bulgogi_instructions">
+    <![CDATA[
+• <b>Step 1: Marinate the Beef</b><br/>
+Mix soy sauce, sugar, sesame oil, garlic, pear puree, and onion. Marinate beef for at least 30 minutes.<br/><br/>
+
+• <b>Step 2: Cook the Beef</b><br/>
+Grill or stir-fry beef slices on high heat until cooked through.<br/><br/>
+
+• <b>Step 3: Garnish and Serve</b><br/>
+Top with chopped green onions and sesame seeds. Serve with steamed rice.
+    ]]>
+</string>
+
+    <string name="ramen_title">Shoyu Ramen</string>
+    <string name="ramen_overview">A soul-warming Japanese noodle soup with soy sauce-based broth, chewy noodles, soft eggs, and savory toppings.</string>
+    <string name="ramen_time">45 mins</string>
+    <string name="ramen_ingredients">Ramen noodles\nChicken broth\nSoy sauce\nGarlic\nGinger\nSoft-boiled egg\nNori\nGreen onion</string>
+    <string name="ramen_instructions">
+    <![CDATA[
+• <b>Step 1: Prepare the Broth</b><br/>
+Simmer chicken broth with soy sauce, garlic, and ginger for 20 minutes.<br/><br/>
+
+• <b>Step 2: Boil the Noodles</b><br/>
+Cook ramen noodles until just tender. Drain and set aside.<br/><br/>
+
+• <b>Step 3: Assemble</b><br/>
+Pour broth over noodles in a bowl. Add toppings like soft-boiled egg, green onions, and nori.<br/><br/>
+
+• <b>Step 4: Serve</b><br/>
+Serve hot and enjoy immediately.
+    ]]>
+</string>
+
+    <string name="banana_pancakes_title">Banana Pancakes</string>
+    <string name="banana_pancakes_overview">Fluffy and naturally sweet pancakes made with ripe bananas — a breakfast favorite with a hint of cinnamon warmth.</string>
+    <string name="banana_pancakes_time">15 mins</string>
+    <string name="banana_pancakes_ingredients">2 ripe bananas\n2 eggs\n1/2 cup flour\n1/4 tsp baking powder\nPinch of salt\nCinnamon\nButter</string>
+    <string name="banana_pancakes_instructions">
+    <![CDATA[
+• <b>Step 1: Make the Batter</b><br/>
+Mash bananas in a bowl. Add eggs, flour, baking powder, salt, and cinnamon. Mix well.<br/><br/>
+
+• <b>Step 2: Cook the Pancakes</b><br/>
+Heat a buttered pan. Scoop batter and cook until bubbles form, then flip.<br/><br/>
+
+• <b>Step 3: Serve</b><br/>
+Stack pancakes and drizzle with maple syrup or honey.
+    ]]>
+</string>
+    <string name="greek_salad_title">Greek Salad</string>
+    <string name="greek_salad_overview">Crisp and refreshing, this salad brings Mediterranean flavors with fresh veggies, olives, and creamy feta.</string>
+    <string name="greek_salad_time">10 mins</string>
+    <string name="greek_salad_ingredients">Cucumber\nTomato\nRed onion\nFeta cheese\nOlives\nOlive oil</string>
+    <string name="greek_salad_instructions">
+    <![CDATA[
+• <b>Step 1: Chop Ingredients</b><br/>
+Dice cucumber, tomatoes, and onion.<br/><br/>
+
+• <b>Step 2: Assemble Salad</b><br/>
+Toss vegetables with olives and feta.<br/><br/>
+
+• <b>Step 3: Dress and Serve</b><br/>
+Drizzle with olive oil and serve chilled.
+    ]]>
+</string>
+
+    <string name="pad_thai_title">Pad Thai</string>
+    <string name="pad_thai_overview">Sweet, tangy, and savory — a Thai street food staple made with chewy noodles and crunchy toppings.</string>
+    <string name="pad_thai_time">25 mins</string>
+    <string name="pad_thai_ingredients">Rice noodles\nShrimp or tofu\nEgg\nBean sprouts\nPeanuts\nTamarind paste</string>
+    <string name="pad_thai_instructions">
+    <![CDATA[
+• <b>Step 1: Cook Noodles</b><br/>
+Soak rice noodles until soft, then drain.<br/><br/>
+
+• <b>Step 2: Stir-fry Protein</b><br/>
+Cook shrimp or tofu in a hot pan.<br/><br/>
+
+• <b>Step 3: Add Sauce</b><br/>
+Stir in tamarind paste and noodles.<br/><br/>
+
+• <b>Step 4: Finish</b><br/>
+Add sprouts, egg, and top with crushed peanuts.
+    ]]>
+</string>
+
+    <string name="falafel_wrap_title">Falafel Wrap</string>
+    <string name="falafel_wrap_overview">A hearty wrap filled with crispy falafel, creamy hummus, and fresh veggies — a plant-based power meal.</string>
+    <string name="falafel_wrap_time">30 mins</string>
+    <string name="falafel_wrap_ingredients">Falafel balls\nPita bread\nHummus\nLettuce\nTomato\nTahini sauce</string>
+    <string name="falafel_wrap_instructions">
+    <![CDATA[
+• <b>Step 1: Prepare Falafel</b><br/>
+Cook falafel according to package or homemade.<br/><br/>
+
+• <b>Step 2: Prep the Wrap</b><br/>
+Warm pita bread and spread hummus.<br/><br/>
+
+• <b>Step 3: Add Fillings</b><br/>
+Layer lettuce, tomato, falafel, and drizzle with tahini.<br/><br/>
+
+• <b>Step 4: Wrap</b><br/>
+Fold pita and enjoy fresh.
+    ]]>
+</string>
+
+    <string name="elote_title">Elote</string>
+    <string name="elote_overview">Grilled Mexican street corn slathered with mayo, cheese, chili, and lime.</string>
+    <string name="elote_time">15 mins</string>
+    <string name="elote_ingredients">Corn on the cob\nMayonnaise\nCotija cheese\nChili powder\nLime</string>
+    <string name="elote_instructions">
+    <![CDATA[
+• <b>Step 1: Grill Corn</b><br/>
+Grill corn on open flame or pan until charred.<br/><br/>
+
+• <b>Step 2: Spread Mayo</b><br/>
+Brush grilled corn with mayonnaise.<br/><br/>
+
+• <b>Step 3: Top It Off</b><br/>
+Sprinkle cheese, chili powder, and finish with lime juice.
+    ]]>
+</string>
+
+    <string name="tiramisu_title">Tiramisu</string>
+    <string name="tiramisu_overview">A layered Italian dessert with espresso-soaked ladyfingers and mascarpone cream.</string>
+    <string name="tiramisu_time">4 hrs</string>
+    <string name="tiramisu_ingredients">Ladyfingers\nEspresso\nMascarpone\nEggs\nSugar\nCocoa powder</string>
+    <string name="tiramisu_instructions">
+    <![CDATA[
+• <b>Step 1: Prepare Coffee</b><br/>
+Brew espresso and cool it.<br/><br/>
+
+• <b>Step 2: Make Cream</b><br/>
+Beat mascarpone with egg yolks and sugar until smooth.<br/><br/>
+
+• <b>Step 3: Layer</b><br/>
+Dip ladyfingers in espresso. Layer with mascarpone mix.<br/><br/>
+
+• <b>Step 4: Chill</b><br/>
+Refrigerate for 4 hours. Dust with cocoa before serving.
+    ]]>
+</string>
+
+    <string name="bibimbap_title">Bibimbap</string>
+    <string name="bibimbap_overview">A colorful Korean rice bowl topped with sautéed veggies, beef, fried egg, and spicy gochujang sauce.</string>
+    <string name="bibimbap_time">30 mins</string>
+    <string name="bibimbap_ingredients">Rice\nGround beef\nSpinach\nCarrots\nZucchini\nMushrooms\nEgg\nGochujang\nSoy sauce\nGarlic\nSesame oil</string>
+    <string name="bibimbap_instructions">
+    <![CDATA[
+• <b>Step 1: Prep Ingredients</b><br/>
+Cook rice. Sauté veggies and beef separately with garlic and soy sauce.<br/><br/>
+
+• <b>Step 2: Fry Egg</b><br/>
+Cook sunny-side-up egg.<br/><br/>
+
+• <b>Step 3: Assemble Bowl</b><br/>
+Layer rice with vegetables, beef, and egg.<br/><br/>
+
+• <b>Step 4: Add Sauce</b><br/>
+Top with gochujang and drizzle sesame oil.
+    ]]>
+</string>
+
+
+
+
 </resources>

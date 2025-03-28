@@ -14,7 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class AccountProfile extends AppCompatActivity {
     private BottomNavigationView bottomNavigation;
-    private LinearLayout profileSettings, logout;
+    private LinearLayout profileSettings, preference, logout;
     private int userId;
 
     @Override
@@ -28,6 +28,7 @@ public class AccountProfile extends AppCompatActivity {
 
         // Initialize UI elements
         profileSettings = findViewById(R.id.linearLayoutProfileSettings);
+        preference = findViewById(R.id.linearLayoutPreference);
 
         // Go to account information settings (username, full name, etc)
         profileSettings.setOnClickListener(v -> {
@@ -35,6 +36,13 @@ public class AccountProfile extends AppCompatActivity {
             intent.putExtra("uid", userId);
             startActivity(intent);
         });
+
+        preference.setOnClickListener(v -> {
+            Intent intent = new Intent(AccountProfile.this, PreferenceSettingsActivity.class);
+            intent.putExtra("uid", userId);
+            startActivity(intent);
+        });
+
 
         // Logout function
         logout = findViewById(R.id.linearLayoutLogout);
@@ -48,7 +56,7 @@ public class AccountProfile extends AppCompatActivity {
 
         bottomNavigation.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.nav_journal) {
+            if (itemId == R.id.nav_home) {
                 // Go to Profile page
                 Intent intent = new Intent(AccountProfile.this, MainActivity.class);
                 intent.putExtra("uid", userId);
@@ -56,6 +64,11 @@ public class AccountProfile extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.nav_account) {
                 // Already in AccountProfile, do nothing or refresh
+                return true;
+            } else if (itemId == R.id.nav_saved) {
+                Intent intent = new Intent(AccountProfile.this, SavedRecipes.class);
+                intent.putExtra("uid", userId);
+                startActivity(intent);
                 return true;
             } else {
                 return false;

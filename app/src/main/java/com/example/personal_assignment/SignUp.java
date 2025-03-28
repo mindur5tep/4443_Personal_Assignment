@@ -1,17 +1,7 @@
 package com.example.personal_assignment;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Base64;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -48,8 +38,8 @@ import java.util.concurrent.Executors;
 
 public class SignUp extends AppCompatActivity {
 
-    private TextInputEditText etFullName, etUsernameCreate, etPasswordCreate, etBirthDate, etPhoneNumber, etAddress;
-    private TextInputLayout fullNameLayout, usernameLayout, passwordLayout, birthDateLayout, phoneNumberLayout, addressLayout;
+    private TextInputEditText etFullName, etUsernameCreate, etPasswordCreate, etBirthDate;
+    private TextInputLayout fullNameLayout, usernameLayout, passwordLayout, birthDateLayout;
     private Button continueButton, uploadImageButton;
     private ImageButton backButton;
     private ImageView profilePictureLayout;
@@ -57,12 +47,6 @@ public class SignUp extends AppCompatActivity {
     private UserDao userDao;
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
     private String profilePictureUri = null;
-
-    //List of canadian provinces
-    private static final List<String> CANADIAN_PROVINCES = Arrays.asList(
-            "AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK",
-            "NT", "NU", "YT"
-    );
 
     private static final String KEY_ALIAS = "PersonalAssignmentEncryptionKey"; // Name of key
 
@@ -83,18 +67,12 @@ public class SignUp extends AppCompatActivity {
         etUsernameCreate = findViewById(R.id.etUsernameCreate);
         etPasswordCreate = findViewById(R.id.etPasswordCreate);
         etBirthDate = findViewById(R.id.etBirthDate);
-        etPhoneNumber = findViewById(R.id.etPhoneNumber);
-        //Add a watcher to the Phone Number input to format it into XXX-XXX-XXXX
-        etPhoneNumber.addTextChangedListener(new PhoneNumberWatcher(etPhoneNumber));
         continueButton = findViewById(R.id.continueSignupBut);
-        etAddress = findViewById(R.id.etAddress);
 
         fullNameLayout = findViewById(R.id.fullNameLayout);
         usernameLayout = findViewById(R.id.usernameLayout);
         passwordLayout = findViewById(R.id.passwordLayout);
         birthDateLayout = findViewById(R.id.birthdateLayout);
-        phoneNumberLayout = findViewById(R.id.phoneNumberLayout);
-        addressLayout = findViewById(R.id.addressLayout);
 
         backButton.setOnClickListener(v -> finish());
         uploadImageButton.setOnClickListener(v -> pickImageLauncher.launch(new String[]{"image/*"}));
@@ -127,8 +105,6 @@ public class SignUp extends AppCompatActivity {
         String username = etUsernameCreate.getText().toString().trim();
         String password = etPasswordCreate.getText().toString().trim();
         String birthDate = etBirthDate.getText().toString().trim();
-        String phoneNumber = etPhoneNumber.getText().toString().trim();
-        String address = etAddress.getText().toString().trim();
 
         // Make sure non of the fields are empty
         boolean hasError = false;
@@ -162,20 +138,6 @@ public class SignUp extends AppCompatActivity {
             birthDateLayout.setError(null);
         }
 
-        if (phoneNumber.isEmpty()) {
-            phoneNumberLayout.setError(getString(R.string.error_required));
-            hasError = true;
-        } else {
-            phoneNumberLayout.setError(null);
-        }
-
-        if (address.isEmpty()) {
-            addressLayout.setError(getString(R.string.error_required));
-            hasError = true;
-        } else {
-            addressLayout.setError(null);
-        }
-
         if (hasError) {
             return;
         }
@@ -188,13 +150,6 @@ public class SignUp extends AppCompatActivity {
             passwordLayout.setError(null);
         }
 
-        // Phone format check
-        if (phoneNumber.length() != 12) {
-            phoneNumberLayout.setError(getString(R.string.error_phone));
-            hasError = true;
-        } else {
-            phoneNumberLayout.setError(null);
-        }
 
         String encryptedPassword;
         try {
@@ -227,18 +182,17 @@ public class SignUp extends AppCompatActivity {
                     newUser.setFullName(fullName);
                     newUser.setPassword(encryptedPassword);
                     newUser.setBirthDate(birthDate);
-                    newUser.setAddress(address);
-                    newUser.setPhoneNumber(phoneNumber);
 
                     executorService.execute(() -> {
                         // Insert user
-                        long rowId = userDao.addUser(newUser);
+                        long rowId = userDao.addUser(newUser); // This inserts the user
+                        int insertedUid = (int) rowId;         // Convert to int if needed
 
                         runOnUiThread(() -> {
-                            Toast.makeText(this, "Profile created. Please log in.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(SignUp.this, Login.class);
-                            intent.putExtra("uid", newUser.getUid());
-                            finish();
+                            Toast.makeText(this, "Profile created.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(SignUp.this, FoodPreference.class);
+                            intent.putExtra("uid", insertedUid);
+                            startActivity(intent);
                         });
                     });
                 }

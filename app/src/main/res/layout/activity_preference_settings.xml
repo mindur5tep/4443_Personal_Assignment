@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F6FAFE">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:backgroundTint="@android:color/transparent"
+        app:navigationIcon="@drawable/arrow_small_left"
+        app:title="Preference Settings"
+        app:titleTextAppearance="@style/TextAppearance.Material3.TitleLarge"/>
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:singleLine="false"
+        app:chipSpacing="8dp"
+        app:selectionRequired="false"
+        app:singleSelection="false" />
+
+    <Button
+        android:id="@+id/savePreferencesBtn"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Changes"
+        android:layout_gravity="end"
+        android:layout_marginTop="24dp"
+        style="@style/Widget.Material3.Button"
+        android:backgroundTint="#206487"
+        android:textColor="@android:color/white"/>
+</LinearLayout>

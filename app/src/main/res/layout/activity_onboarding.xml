@@ -5,63 +5,70 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4FBF8"
+    android:background="#206487"
     tools:context=".Onboarding">
 
     <!-- Onboarding Title !-->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/header"
-        android:contentDescription="@string/onboarding_title"/>
 
     <!-- Onboarding Title !-->
+
+    <!-- Onboarding Header !-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:contentDescription="@string/onboarding_title"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/app_icon" />
+
+    <!-- Onboarding Body !-->
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="64dp"
-        android:src="@drawable/illustration___sitting_reading"
+        android:contentDescription="@string/onboarding_illustration"
+        android:src="@drawable/onboarding_illustration"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        android:contentDescription="@string/onboarding_illustration"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <!-- Onboarding Header !-->
     <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/roboto_medium"
-        android:text="@string/express_yourself_freely"
-        android:textAlignment="center"
-        android:textColor="#171D1A"
-        android:textSize="28sp"
+        android:text="Cook Like a
+        Private Chef"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <!-- Onboarding Body !-->
     <TextView
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/whether_you_re_sharing_joys_challenges_or_simple_musings_our_app_is_here_to_help_you_express_your_true_self"
-        android:textAlignment="center"
-        android:textColor="#404943"
-        android:textSize="14sp"
+        android:layout_marginEnd="16dp"
+        android:text="From family recipes to bold flavors, express your culinary creativity."
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -73,18 +80,19 @@
         style="@style/Widget.Material3.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="48dp"
+        android:backgroundTint="#FFFFFF"
         android:elevation="0dp"
-        android:stateListAnimator="@null"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:layout_editor_absoluteX="24dp"
-        android:text="@string/get_started"
-        android:backgroundTint="#206A4E"
-        android:textAllCaps="false"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
         android:fontFamily="@font/roboto_medium"
-        android:textSize="16sp"/>
+        android:stateListAnimator="@null"
+        android:text="@string/get_started"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView1"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColor="#001E2D"
+        tools:layout_editor_absoluteX="24dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
