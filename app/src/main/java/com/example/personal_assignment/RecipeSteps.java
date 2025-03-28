@@ -67,7 +67,7 @@ public class RecipeSteps extends AppCompatActivity {
     private void initPorcupine() {
         try {
             porcupineManager = new PorcupineManager.Builder()
-                    .setAccessKey("o37jWqdlpM7fhH/aRqiJbOhuQy+auW2XFzvcmO+c5oqqqksapStYvw==")  // Replace with your actual access key
+                    .setAccessKey("vQ5sqYyrsipysWAHUQjUh8AQeG8uETG8zBXx2oVxR2PGe2ZyKGd53g==")  // Replace with your actual access key
                     .setKeywordPath("Hey-Food_en_android_v3_0_0.ppn")
                     .setSensitivity(0.6f)
                     .build(getApplicationContext(), porcupineManagerCallback);
