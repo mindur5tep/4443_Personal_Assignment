@@ -69,19 +69,19 @@
                 android:src="@drawable/creamy_pasta" />
 
             <!-- Save Button -->
-            <Button
-                android:id="@+id/saveRecipeBtn"
-                android:layout_width="96dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_gravity="start"
-                style="@style/Widget.Material3.Button"
-                android:text="Save"
-                android:backgroundTint="#206487"
-                android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:textAllCaps="false"
-                android:elevation="0dp" />
+<!--            <Button-->
+<!--                android:id="@+id/saveRecipeBtn"-->
+<!--                android:layout_width="96dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_gravity="start"-->
+<!--                style="@style/Widget.Material3.Button"-->
+<!--                android:text="Save"-->
+<!--                android:backgroundTint="#206487"-->
+<!--                android:textColor="@android:color/white"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textAllCaps="false"-->
+<!--                android:elevation="0dp" />-->
 
             <!-- Overview -->
             <TextView

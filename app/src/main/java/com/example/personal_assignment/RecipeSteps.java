@@ -11,7 +11,7 @@ import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.util.Log;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +22,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import ai.picovoice.porcupine.Porcupine;
 import ai.picovoice.porcupine.PorcupineException;
 import ai.picovoice.porcupine.PorcupineManager;
 import ai.picovoice.porcupine.PorcupineManagerCallback;
@@ -34,12 +33,11 @@ public class RecipeSteps extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SPEECH_INPUT = 1000;
     private static final int REQUEST_MICROPHONE_PERMISSION = 2000;
-    TextView textTv;
+    private TextView textTv;
+    private Button buttonNext, buttonBack;
     private PorcupineManager porcupineManager;
     private int currentStep;  // Variable to track the current step
     private ArrayList<String> steps;
-    private int userId;
-    private ImageButton backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,31 +45,40 @@ public class RecipeSteps extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_steps);
 
         textTv = findViewById(R.id.textRecipe);
+        buttonNext = findViewById(R.id.buttonNext);
+        buttonBack = findViewById(R.id.buttonPrev);
 
-        userId = getIntent().getIntExtra("uid", -1);
+        // Retrieve steps passed from the previous activity
         steps = getIntent().getStringArrayListExtra("steps");
-        backButton = findViewById(R.id.backButton);
-        backButton.setOnClickListener(v -> {
-            Intent intent = new Intent(RecipeSteps.this, RecipeActivity.class);
-            intent.putExtra("uid", userId);
-            startActivity(intent);
-        });
-
-       currentStep = 0;
+        currentStep = 0;
 
         if (steps != null && !steps.isEmpty()) {
-            textTv.setText(steps.get(currentStep));
-        }else{
+            updateStep();
+        } else {
             Toast.makeText(RecipeSteps.this, "No Steps Found", Toast.LENGTH_SHORT).show();
         }
 
+        // Set up manual navigation buttons
+        buttonNext.setOnClickListener(v -> {
+            currentStep++;
+            updateStep();
+        });
+
+        buttonBack.setOnClickListener(v -> {
+            if (currentStep > 0) {
+                currentStep--;
+                updateStep();
+            }
+        });
+
+        // Apply window insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Request microphone permission
+        // Request microphone permission for voice recognition
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_MICROPHONE_PERMISSION);
         } else {
@@ -131,15 +138,15 @@ public class RecipeSteps extends AppCompatActivity {
             } else if (spokenText.contains("back")) {
                 if (currentStep > 0) currentStep--;
                 updateStep();
-            }
-            else if (spokenText.contains("i am done")){
+            } else if (spokenText.contains("i am done")) {
                 try {
                     porcupineManager.stop();
                 } catch (PorcupineException e) {
                     throw new RuntimeException(e);
                 }
+                // Navigate back to the Recipe page (adjust target as needed)
                 Intent intent = new Intent(RecipeSteps.this, RecipeActivity.class);
-                intent.putExtra("uid", userId);
+                intent.putExtra("uid", getIntent().getIntExtra("uid", -1));
                 startActivity(intent);
                 finish();
             }
@@ -149,25 +156,21 @@ public class RecipeSteps extends AppCompatActivity {
     private void updateStep() {
         if (steps != null && currentStep >= 0 && currentStep < steps.size()) {
             String stepLabel = "Step " + (currentStep + 1);
-
             SpannableStringBuilder builder = new SpannableStringBuilder(stepLabel);
 
+            // Apply bold and increased size to the step label
             builder.setSpan(new StyleSpan(Typeface.BOLD),
                     0,
                     builder.length(),
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
             builder.setSpan(new RelativeSizeSpan(1.3f),
                     0,
                     builder.length(),
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
             builder.append(":\n\n");
-
             builder.append(steps.get(currentStep));
 
             textTv.setText(builder);
-
         } else {
             textTv.setText("You've completed the recipe.\nSay 'back' to review a step.");
         }

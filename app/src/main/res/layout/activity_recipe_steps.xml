@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -8,26 +9,28 @@
     tools:context=".RecipeSteps"
     android:background="#206487">
 
+    <!-- Top Back Button for navigating to previous activity -->
     <ImageButton
         android:id="@+id/backButton"
-        android:paddingStart="10dp"
-        android:paddingEnd="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
         android:src="@drawable/arrow_small_left"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:padding="8dp"
         app:tint="@color/white"
         android:contentDescription="@string/back_button"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <!-- Recipe Step Text -->
     <TextView
         android:id="@+id/textRecipe"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="320dp"
         android:layout_marginEnd="24dp"
         android:lineSpacingExtra="8dp"
         android:fontFamily="@font/roboto"
@@ -36,11 +39,44 @@
         android:textColor="@android:color/white"
         android:textSize="24sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/backButton"
-        app:layout_constraintVertical_bias="0.344" />
+        app:layout_constraintBottom_toTopOf="@+id/navigationLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.3"/>
+
+    <!-- Navigation Buttons Container -->
+    <LinearLayout
+        android:id="@+id/navigationLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/textRecipe"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="859dp">
+
+        <Button
+            android:id="@+id/buttonPrev"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#EEF1F6"
+            android:text="Previous"
+            android:textColor="#0A1E28"
+            android:textSize="16dp"/>
+
+        <Button
+            android:id="@+id/buttonNext"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:backgroundTint="#001E2D"
+            android:text="Next"
+            android:textSize="16dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
