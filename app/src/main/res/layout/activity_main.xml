@@ -121,6 +121,18 @@
                     app:chipIconVisible="false"
                     app:checkedIconVisible="false"/>
 
+
+                <com.google.android.material.chip.Chip
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:id="@+id/chipBreakfast"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checkable="true"
+                    app:chipBackgroundColor="@color/chip_bg_selector"
+                    android:text="Breakfast"
+                    app:chipIconVisible="false"
+                    app:checkedIconVisible="false"/>
+
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.Material3.Chip.Filter"
                     android:id="@+id/chipDessert"
