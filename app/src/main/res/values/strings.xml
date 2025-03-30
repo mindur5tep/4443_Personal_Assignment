@@ -468,18 +468,19 @@ Milk\n
 Butter
 </string>
     <string name="omelette_instructions"><![CDATA[
-• <b>Prepare Ingredients</b><br/>
-Beat eggs with a splash of milk, salt, and pepper; wash and dice the tomato and broccoli.<br/><br/>
+• <b>Step 1: Prepare Ingredients</b><br/>
+Beat the eggs with a splash of milk, salt, and pepper; then wash and dice the tomato and broccoli.<br/><br/>
 
-• <b>Cook the Omelette</b><br/>
-Melt butter in a pan over medium heat, pour in the egg mixture, and let it set.<br/><br/>
+• <b>Step 2: Cook the Omelette</b><br/>
+Melt butter in a pan over medium heat, pour in the egg mixture, and let it set until slightly firm.<br/><br/>
 
-• <b>Add Toppings & Fold</b><br/>
-Sprinkle shredded cheese and add the diced vegetables on one half, then fold the omelette and cook for an extra minute.<br/><br/>
+• <b>Step 3: Add Toppings & Fold</b><br/>
+Sprinkle shredded cheese and add the diced vegetables on one half; then fold the omelette and cook for an extra minute.<br/><br/>
 
-• <b>Serve</b><br/>
+• <b>Step 4: Serve</b><br/>
 Slide the omelette onto a plate and serve immediately.
 ]]></string>
+
 
 
     <string name="chicken_teriyaki_title">Chicken Teriyaki</string>

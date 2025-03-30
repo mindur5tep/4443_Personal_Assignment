@@ -20,9 +20,10 @@ public class RecipeStepsOnboarding extends AppCompatActivity {
 
     private TextView tutorialTextView;
     private final List<String> tutorialSteps = Arrays.asList(
-            "Say \"Next\" to go to the next step",
-            "Say \"Back\" to go to the previous step",
-            "And say \"I am done\" once you are finished",
+            "Say \"Hey Food\" to activate voice commands.",
+            "Say \"Next\" to go to the next step.",
+            "Say \"Back\" to go to the previous step.",
+            "And say \"I am done\" once you are finished.",
             "Let's Cook!"
     );
     private int currentStep = 0;
