@@ -186,6 +186,17 @@ public class MainActivity extends AppCompatActivity {
             ));
 
             sampleRecipes.add(new Recipe(
+                    getString(R.string.fruit_salad_overview),
+                    getString(R.string.fruit_salad_title),
+                    getString(R.string.fruit_salad_time),
+                    R.drawable.fruit_salad,
+                    "Breakfast",
+                    getString(R.string.fruit_salad_ingredients),
+                    getString(R.string.fruit_salad_instructions),
+                    false
+            ));
+
+            sampleRecipes.add(new Recipe(
                     getString(R.string.parfait_overview),
                     getString(R.string.parfait_title),
                     getString(R.string.parfait_time),
@@ -227,16 +238,6 @@ public class MainActivity extends AppCompatActivity {
                     getString(R.string.mapo_tofu_instructions), false
             ));
 
-            sampleRecipes.add(new Recipe(
-                    getString(R.string.cookie_dough_overview),
-                    getString(R.string.cookie_dough_title),
-                    getString(R.string.cookie_dough_time),
-                    R.drawable.cookie_dough,
-                    "Snack",
-                    getString(R.string.cookie_dough_ingredients),
-                    getString(R.string.cookie_dough_instructions),
-                    false
-            ));
 
             sampleRecipes.add(new Recipe(
                     getString(R.string.sushi_rolls_overview),
