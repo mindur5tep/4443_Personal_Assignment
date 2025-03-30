@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,10 +22,9 @@ import com.example.personal_assignment.database.UserDao;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -186,13 +183,24 @@ public class MainActivity extends AppCompatActivity {
             ));
 
             sampleRecipes.add(new Recipe(
-                    getString(R.string.fruit_salad_overview),
-                    getString(R.string.fruit_salad_title),
-                    getString(R.string.fruit_salad_time),
-                    R.drawable.fruit_salad,
+                    getString(R.string.omelette_overview),
+                    getString(R.string.omelette_title),
+                    getString(R.string.omelette_time),
+                    R.drawable.omelette,
                     "Breakfast",
-                    getString(R.string.fruit_salad_ingredients),
-                    getString(R.string.fruit_salad_instructions),
+                    getString(R.string.omelette_ingredients),
+                    getString(R.string.omelette_instructions),
+                    false
+            ));
+
+            sampleRecipes.add(new Recipe(
+                    getString(R.string.chicken_teriyaki_overview),
+                    getString(R.string.chicken_teriyaki_title),
+                    getString(R.string.chicken_teriyaki_time),
+                    R.drawable.chicken_teriyaki,
+                    "Chinese",
+                    getString(R.string.chicken_teriyaki_ingredients),
+                    getString(R.string.chicken_teriyaki_instructions),
                     false
             ));
 
@@ -328,8 +336,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void filterByCategory(String category) {
         if (category.equalsIgnoreCase("All")) {
+            // Get the user's preferred categories (e.g., Dessert, Breakfast, Chinese)
+            List<String> userPrefs = userDao.getPreferencesByUser(userId);
             recipeDao.getAllRecipes().observe(this, recipes -> {
-                filteredAdapter.submitList(recipes);
+                List<Recipe> filteredRecipes = new ArrayList<>();
+                if (userPrefs != null && !userPrefs.isEmpty()) {
+                    for (Recipe recipe : recipes) {
+                        if (userPrefs.contains(recipe.getCategory())) {
+                            filteredRecipes.add(recipe);
+                        }
+                    }
+                    // Optionally, sort alphabetically by title:
+                    Collections.sort(filteredRecipes, (r1, r2) -> r1.getTitle().compareTo(r2.getTitle()));
+                } else {
+                    filteredRecipes = recipes; // Fallback if no user preferences exist
+                }
+                filteredAdapter.submitList(filteredRecipes);
             });
         } else {
             recipeDao.getRecipesByCategory(category).observe(this, recipes -> {
@@ -337,6 +359,5 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
-
 
 }
