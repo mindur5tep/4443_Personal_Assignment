@@ -32,7 +32,7 @@ public class PreferenceSettingsActivity extends AppCompatActivity {
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     private final String[] preferenceOptions = {
-            "Mediterranean", "Chinese", "Japanese", "Indian", "Thai",
+            "Dessert","Breakfast",  "Chinese", "Japanese", "Indian", "Thai",
             "Mexican", "Middle Eastern", "Italian", "French", "Korean", "Greek"
     };
 

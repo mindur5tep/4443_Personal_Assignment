@@ -416,20 +416,22 @@ A delicious and crunchy layered treat made with creamy yogurt, homemade granola,
 1 cup of yogurt
 </string>
     <string name="parfait_instructions">
-<![CDATA[
-• <b>Step 1: Prepare the granola mixture</b><br/>
-Preheat the oven to 300°F and line a baking tray with a baking sheet. In a bowl, mix oats, brown sugar, and vegetable oil by hand until the oats are evenly coated.<br/><br/>
+<string name="parfait_instructions"><![CDATA[
+• <b>Step 1: Preheat & Mix Granola</b><br/>
+Preheat the oven to 300°F, line a baking tray, and combine oats, brown sugar, and vegetable oil in a bowl.<br/><br/>
 
-• <b>Step 2: Bake the granola</b><br/>
-Spread the mixture evenly on the baking sheet and bake at 300°F for 5 minutes. Once done, remove from the oven and let it cool completely.<br/><br/>
+• <b>Step 2: Bake the Granola</b><br/>
+Spread the mixture evenly on the tray, bake for 5 minutes, then let it cool completely.<br/><br/>
 
-• <b>Step 3: Prepare the fruit</b><br/>
-Rinse the blueberries and strawberries, then core and dice the strawberries into small pieces.<br/><br/>
+• <b>Step 3: Prepare the Fruit</b><br/>
+Rinse the blueberries and core and dice the strawberries.<br/><br/>
 
-• <b>Step 4: Assemble</b><br/>
-In a cup or glass, layer yogurt, granola, and fruit. Repeat the layers until the container is full. Finish by garnishing with extra granola and fruit.
-]]>
+• <b>Step 4: Assemble the Parfait</b><br/>
+Layer yogurt, the baked granola, and fruit in a cup or glass, then garnish with extra granola and fruit before serving.
+]]></string>
+
 </string>
+
 
     <string name="cookie_dough_title">Edible Cookie Dough Bites</string>
     <string name="cookie_dough_overview">
@@ -451,6 +453,91 @@ Cream the butter, sugars, and salt together in a bowl until fluffy. Mix in the o
 Scoop and roll the dough into 1-inch balls, place on a dish, and chill if preferred.
 ]]>
 </string>
+
+    <string name="omelette_title">Omelette</string>
+    <string name="omelette_overview">A quick and nutritious omelette loaded with cheese and fresh vegetables.</string>
+    <string name="omelette_time">10 mins</string>
+    <string name="omelette_ingredients">
+2 large eggs\n
+Salt and pepper\n
+Shredded cheese\n
+Milk\n
+1 small tomato\n
+1 branch of broccoli\n
+Butter
+</string>
+    <string name="omelette_instructions"><![CDATA[
+• <b>Step 1: Prepare Ingredients</b><br/>
+Beat eggs with a splash of milk, salt, and pepper; wash and dice the tomato and broccoli.<br/><br/>
+• <b>Step 2: Cook the Omelette</b><br/>
+Melt butter in a pan over medium heat, pour in the egg mixture, and let it set.<br/><br/>
+• <b>Step 3: Add Toppings & Fold</b><br/>
+Sprinkle shredded cheese and add the diced vegetables on one half, then fold the omelette and cook for an extra minute.<br/><br/>
+• <b>Step 4: Serve</b><br/>
+Slide the omelette onto a plate and serve immediately.
+]]></string>
+
+
+    <string name="chicken_teriyaki_title">Chicken Teriyaki</string>
+    <string name="chicken_teriyaki_overview">A classic Japanese dish featuring tender chicken glazed in a sweet and savory teriyaki sauce.</string>
+    <string name="chicken_teriyaki_time">25 mins</string>
+    <string name="chicken_teriyaki_ingredients">
+Chicken thighs (500g), boneless, skin on\n
+Soy sauce (1/3 cup)\n
+Mirin (1/3 cup)\n
+Sugar (2 tbsp)\n
+Fresh ginger, grated (1 tsp)\n
+Garlic, minced (2 cloves)\n
+Sesame seeds (1 tbsp)\n
+Green onions, chopped (for garnish)\n
+Vegetable oil (1 tbsp)
+</string>
+    <string name="chicken_teriyaki_instructions"><![CDATA[
+• <b>Step 1: Prepare the Ingredients</b><br/>
+Gather all ingredients, pat dry the chicken, grate the ginger, mince the garlic, and chop the green onions.<br/><br/>
+• <b>Step 2: Prepare the Chicken</b><br/>
+Trim the chicken thighs and lightly score the skin to allow the marinade to penetrate.<br/><br/>
+• <b>Step 3: Make the Marinade</b><br/>
+In a bowl, mix together soy sauce, mirin, sugar, grated ginger, and minced garlic until well combined.<br/><br/>
+• <b>Step 4: Marinate the Chicken</b><br/>
+Place the chicken in the marinade and let it sit for 15 minutes so it absorbs the flavors.<br/><br/>
+• <b>Step 5: Sear the Chicken</b><br/>
+Heat vegetable oil in a pan over medium-high heat and sear the chicken, skin-side down, until golden brown.<br/><br/>
+• <b>Step 6: Glaze with Sauce</b><br/>
+Pour the remaining marinade into the pan, lower the heat, and simmer until the sauce thickens and glazes the chicken.<br/><br/>
+• <b>Step 7: Garnish and Serve</b><br/>
+Sprinkle with sesame seeds and chopped green onions, then serve hot with rice.
+]]></string>
+
+
+    <string name="egg_fried_rice_title">Egg Fried Rice</string>
+    <string name="egg_fried_rice_overview">A quick and simple Chinese dish combining savory rice, scrambled eggs, and vegetables.</string>
+    <string name="egg_fried_rice_time">15 mins</string>
+    <string name="egg_fried_rice_ingredients">
+Rice (cooked, 2 cups)\n
+Eggs (2, beaten)\n
+Frozen peas and carrots (1 cup)\n
+Green onions (chopped)\n
+Soy sauce (2 tbsp)\n
+Vegetable oil (1-2 tbsp)\n
+Salt and pepper
+</string>
+    <string name="egg_fried_rice_instructions"><![CDATA[
+• <b>Step 1: Prepare Ingredients</b><br/>
+Beat the eggs, chop the green onions, and have your rice and vegetables ready.<br/><br/>
+• <b>Step 2: Scramble the Eggs</b><br/>
+Heat oil in a pan and scramble the eggs until just set, then remove them from the pan.<br/><br/>
+• <b>Step 3: Stir-Fry Vegetables</b><br/>
+Add a little oil and stir-fry the peas, carrots, and green onions for about 2 minutes.<br/><br/>
+• <b>Step 4: Combine and Season</b><br/>
+Return the scrambled eggs to the pan, add the rice, drizzle with soy sauce, and stir-fry until everything is well mixed and heated through; season with salt and pepper.<br/><br/>
+• <b>Step 5: Serve</b><br/>
+Plate the fried rice and serve hot.
+]]></string>
+
+
+
+
 
 
 </resources>
