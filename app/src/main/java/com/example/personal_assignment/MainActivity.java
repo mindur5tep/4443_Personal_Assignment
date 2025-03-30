@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,7 +23,6 @@ import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -32,8 +30,6 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigation;
-
-    // Background DB operations
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     private ImageView profilePic;
@@ -45,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private RecipeDao recipeDao;
     private UserDao userDao;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,74 +48,72 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         profilePic = findViewById(R.id.profilePicture);
-        // Floating Action Button ID
         headerName = findViewById(R.id.main_header);
 
-        // Initialize DB access objects once
+        // Initialize DB access objects
         recipeDao = ProfileDatabase.getDatabase(getApplicationContext()).recipeDao();
         userDao = ProfileDatabase.getDatabase(getApplicationContext()).userDao();
 
         // Get userID passed from the login activity
         userId = getIntent().getIntExtra("uid", -1);
 
+        // Setup popular recipes carousel
         RecyclerView rvPopular = findViewById(R.id.rvRecipes);
         rvPopular.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         carouselAdapter = new RecipeAdapter(this::openRecipeDetail);
         rvPopular.setAdapter(carouselAdapter);
 
+        // Setup filtered recipes list
         RecyclerView rvFiltered = findViewById(R.id.rvFilteredRecipes);
         rvFiltered.setLayoutManager(new LinearLayoutManager(this));
         filteredAdapter = new FilteredRecipeAdapter(this, this::openRecipeDetail, recipeDao);
         rvFiltered.setAdapter(filteredAdapter);
 
-        recipeDao.getTopPopularRecipes().observe(this, new Observer<List<Recipe>>() {
-            @Override
-            public void onChanged(List<Recipe> recipes) {
-                carouselAdapter.submitList(recipes);
-            }
+        // Query and update popular recipes synchronously
+        executorService.execute(() -> {
+            List<Recipe> popularRecipes = recipeDao.getTopPopularRecipes(); // Synchronous call
+            runOnUiThread(() -> carouselAdapter.submitList(popularRecipes));
         });
 
-        recipeDao.getAllRecipes().observe(this, new Observer<List<Recipe>>() {
-            @Override
-            public void onChanged(List<Recipe> recipes) {
-                filteredAdapter.submitList(recipes);
-            }
-        });
-
-        recipeDao.getAllRecipes().observe(this, new Observer<List<Recipe>>() {
-            @Override
-            public void onChanged(List<Recipe> recipes) {
-                filteredAdapter.submitList(recipes);
-            }
+        // Query and update all recipes synchronously for the filtered list
+        executorService.execute(() -> {
+            List<Recipe> allRecipes = recipeDao.getAllRecipes(); // Synchronous call
+            runOnUiThread(() -> filteredAdapter.submitList(allRecipes));
         });
 
         chipGroupCategory = findViewById(R.id.chipGroup);
-
         chipGroupCategory.setOnCheckedChangeListener((group, checkedId) -> {
             String selectedCategory = ((Chip) group.findViewById(checkedId)).getText().toString();
             filterByCategory(selectedCategory);
         });
 
+        // Seed the database if empty and update user header info
         executorService.execute(() -> {
             int count = recipeDao.getRecipeCount();
             if (count == 0) {
                 seedRecipes(recipeDao);
             }
-                String fullName = userDao.getUserFullNameByUid(userId); // Method to get full name by UID
-                String profilePicSrc = userDao.getUserProfilePictureByUid(userId);
 
-                runOnUiThread(() -> {
-                    if (fullName != null && !fullName.isEmpty()) {
-                        headerName.setText(getString(R.string.greeting_message, fullName));
-                    }
-                    if (profilePicSrc != null) {
-                        Uri uriImage = Uri.parse(profilePicSrc);
-                        profilePic.setImageURI(uriImage);
-                    }
-                });
+            List<Recipe> popularRecipes = recipeDao.getTopPopularRecipes();
 
+            List<Recipe> allRecipes = recipeDao.getAllRecipes();
+
+            String fullName = userDao.getUserFullNameByUid(userId);
+            String profilePicSrc = userDao.getUserProfilePictureByUid(userId);
+
+            runOnUiThread(() -> {
+                if (fullName != null && !fullName.isEmpty()) {
+                    headerName.setText(getString(R.string.greeting_message, fullName));
+                }
+                if (profilePicSrc != null) {
+                    Uri uriImage = Uri.parse(profilePicSrc);
+                    profilePic.setImageURI(uriImage);
+                }
+                // Update adapters
+                carouselAdapter.submitList(popularRecipes);
+                filteredAdapter.submitList(allRecipes);
             });
-
+        });
 
         // Bottom Navigation
         bottomNavigation = findViewById(R.id.bottom_navigation);
@@ -130,13 +123,11 @@ public class MainActivity extends AppCompatActivity {
                 // Already on Home, do nothing
                 return true;
             } else if (itemId == R.id.nav_saved) {
-                // Navigate to Saved Recipes page
                 Intent intent = new Intent(MainActivity.this, SavedRecipes.class);
                 intent.putExtra("uid", userId);
                 startActivity(intent);
                 return true;
             } else if (itemId == R.id.nav_account) {
-                // Navigate to Profile page
                 Intent intent = new Intent(MainActivity.this, AccountProfile.class);
                 intent.putExtra("uid", userId);
                 startActivity(intent);
@@ -145,13 +136,13 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
+        // Apply window insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
-
 
     private void openRecipeDetail(Recipe recipe) {
         Intent intent = new Intent(MainActivity.this, RecipeActivity.class);
@@ -246,7 +237,6 @@ public class MainActivity extends AppCompatActivity {
                     getString(R.string.mapo_tofu_instructions), false
             ));
 
-
             sampleRecipes.add(new Recipe(
                     getString(R.string.sushi_rolls_overview),
                     getString(R.string.sushi_rolls_title),
@@ -333,31 +323,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void filterByCategory(String category) {
         if (category.equalsIgnoreCase("All")) {
-            // Get the user's preferred categories (e.g., Dessert, Breakfast, Chinese)
-            List<String> userPrefs = userDao.getPreferencesByUser(userId);
-            recipeDao.getAllRecipes().observe(this, recipes -> {
-                List<Recipe> filteredRecipes = new ArrayList<>();
-                if (userPrefs != null && !userPrefs.isEmpty()) {
-                    for (Recipe recipe : recipes) {
-                        if (userPrefs.contains(recipe.getCategory())) {
-                            filteredRecipes.add(recipe);
-                        }
-                    }
-                    // Optionally, sort alphabetically by title:
-                    Collections.sort(filteredRecipes, (r1, r2) -> r1.getTitle().compareTo(r2.getTitle()));
-                } else {
-                    filteredRecipes = recipes; // Fallback if no user preferences exist
-                }
-                filteredAdapter.submitList(filteredRecipes);
+            executorService.execute(() -> {
+                List<Recipe> allRecipes = recipeDao.getAllRecipes();
+                runOnUiThread(() -> filteredAdapter.submitList(allRecipes));
             });
         } else {
-            recipeDao.getRecipesByCategory(category).observe(this, recipes -> {
-                filteredAdapter.submitList(recipes);
+            executorService.execute(() -> {
+                List<Recipe> catRecipes = recipeDao.getRecipesByCategory(category);
+                runOnUiThread(() -> filteredAdapter.submitList(catRecipes));
             });
         }
     }
-
 }
