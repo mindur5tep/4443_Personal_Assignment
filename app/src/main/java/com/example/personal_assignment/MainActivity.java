@@ -185,7 +185,8 @@ public class MainActivity extends AppCompatActivity {
                     getString(R.string.omelette_overview),
                     getString(R.string.omelette_title),
                     getString(R.string.omelette_time),
-                    R.drawable.fruit_salad,
+                    R.drawable.omelette
+                    ,
                     "Breakfast",
                     getString(R.string.omelette_ingredients),
                     getString(R.string.omelette_instructions),

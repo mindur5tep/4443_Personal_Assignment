@@ -416,7 +416,8 @@ A delicious and crunchy layered treat made with creamy yogurt, homemade granola,
 1 cup of yogurt
 </string>
     <string name="parfait_instructions">
-<string name="parfait_instructions"><![CDATA[
+<string name="parfait_instructions">
+    <![CDATA[
 • <b>Preheat & Mix Granola</b><br/>
 Preheat the oven to 300°F, line a baking tray, and combine oats, brown sugar, and vegetable oil in a bowl.<br/><br/>
 
@@ -469,10 +470,13 @@ Butter
     <string name="omelette_instructions"><![CDATA[
 • <b>Prepare Ingredients</b><br/>
 Beat eggs with a splash of milk, salt, and pepper; wash and dice the tomato and broccoli.<br/><br/>
+
 • <b>Cook the Omelette</b><br/>
 Melt butter in a pan over medium heat, pour in the egg mixture, and let it set.<br/><br/>
+
 • <b>Add Toppings & Fold</b><br/>
 Sprinkle shredded cheese and add the diced vegetables on one half, then fold the omelette and cook for an extra minute.<br/><br/>
+
 • <b>Serve</b><br/>
 Slide the omelette onto a plate and serve immediately.
 ]]></string>
@@ -495,16 +499,22 @@ Vegetable oil (1 tbsp)
     <string name="chicken_teriyaki_instructions"><![CDATA[
 • <b>Step 1: Prepare the Ingredients</b><br/>
 Gather all ingredients, pat dry the chicken, grate the ginger, mince the garlic, and chop the green onions.<br/><br/>
+
 • <b>Step 2: Prepare the Chicken</b><br/>
 Trim the chicken thighs and lightly score the skin to allow the marinade to penetrate.<br/><br/>
+
 • <b>Step 3: Make the Marinade</b><br/>
 In a bowl, mix together soy sauce, mirin, sugar, grated ginger, and minced garlic until well combined.<br/><br/>
+
 • <b>Step 4: Marinate the Chicken</b><br/>
 Place the chicken in the marinade and let it sit for 15 minutes so it absorbs the flavors.<br/><br/>
+
 • <b>Step 5: Sear the Chicken</b><br/>
 Heat vegetable oil in a pan over medium-high heat and sear the chicken, skin-side down, until golden brown.<br/><br/>
+
 • <b>Step 6: Glaze with Sauce</b><br/>
 Pour the remaining marinade into the pan, lower the heat, and simmer until the sauce thickens and glazes the chicken.<br/><br/>
+
 • <b>Step 7: Garnish and Serve</b><br/>
 Sprinkle with sesame seeds and chopped green onions, then serve hot with rice.
 ]]></string>
@@ -525,14 +535,19 @@ Salt and pepper
     <string name="egg_fried_rice_instructions"><![CDATA[
 • <b>Step 1: Prepare Ingredients</b><br/>
 Beat the eggs, chop the green onions, and have your rice and vegetables ready.<br/><br/>
+
 • <b>Step 2: Scramble the Eggs</b><br/>
 Heat oil in a pan and scramble the eggs until just set, then remove them from the pan.<br/><br/>
+
 • <b>Step 3: Stir-Fry Vegetables</b><br/>
 Add a little oil and stir-fry the peas, carrots, and green onions for about 2 minutes.<br/><br/>
+
 • <b>Step 4: Combine and Season</b><br/>
 Return the scrambled eggs to the pan, add the rice, drizzle with soy sauce, and stir-fry until everything is well mixed and heated through; season with salt and pepper.<br/><br/>
+
 • <b>Step 5: Serve</b><br/>
 Plate the fried rice and serve hot.
+
 ]]></string>
 
 
