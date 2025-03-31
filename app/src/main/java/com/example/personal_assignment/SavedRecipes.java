@@ -15,11 +15,16 @@ import com.example.personal_assignment.database.Recipe;
 import com.example.personal_assignment.database.RecipeDao;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class SavedRecipes extends AppCompatActivity {
 
     private FilteredRecipeAdapter adapter;
     private int userId;
     private RecipeDao recipeDao;
+    private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +48,10 @@ public class SavedRecipes extends AppCompatActivity {
             return insets;
         });
 
-        // Observe LiveData for saved recipes (must be called on main thread)
-        recipeDao.getSavedRecipes().observe(this, recipes -> {
-            adapter.submitList(recipes);
+        // Fetch saved recipes synchronously in the background
+        executorService.execute(() -> {
+            List<Recipe> savedRecipes = recipeDao.getSavedRecipes(); // Synchronous call
+            runOnUiThread(() -> adapter.submitList(savedRecipes));
         });
 
         // Bottom Navigation setup
